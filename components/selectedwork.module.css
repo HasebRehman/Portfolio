@@ -1,0 +1,282 @@
+.selectedWorkSection {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 8rem 2rem;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3rem;
+  margin-bottom: 6rem;
+}
+
+.tag {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.projectRow {
+  display: flex;
+  width: 100%;
+}
+
+.evenRow {
+  justify-content: flex-start;
+}
+
+.oddRow {
+  justify-content: flex-end;
+}
+
+.cardLink {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-decoration: none;
+}
+
+.oddRow .cardLink {
+  width: 55%;
+}
+
+.visualContainer {
+  width: 100%;
+  aspect-ratio: 1.6 / 1;
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardNum {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  opacity: 0.5;
+  z-index: 4; /* sit above image */
+}
+
+/* Technical grid line details to make it look expensive */
+.techLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3; /* sit above image */
+}
+
+.projectImage {
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.85; /* allow the background gradient accent to bleed through */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.cardLink:hover .projectImage {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.horizontalLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: scaleX(0.8);
+  transition: background-color 0.4s;
+}
+
+.verticalLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: scaleY(0.8);
+  transition: background-color 0.4s;
+}
+
+.circleGraphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+}
+
+/* Card Hover States */
+.cardLink:hover .visualContainer {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.cardLink:hover .horizontalLine,
+.cardLink:hover .verticalLine {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.cardLink:hover .circleGraphic {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.projectTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.viewLink {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.cardLink:hover .viewLink {
+  opacity: 1;
+  color: var(--foreground);
+}
+
+.cardLink:hover .arrow {
+  transform: translateX(5px);
+}
+
+.ctaFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
+
+.archiveLink {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--foreground);
+  padding-bottom: 0.5rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.archiveLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.archiveLink:hover .arrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .cardLink, .oddRow .cardLink {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .selectedWorkSection {
+    padding: 6rem 1.5rem;
+  }
+  .projectsList {
+    gap: 4rem;
+  }
+  .cardLink, .oddRow .cardLink {
+    width: 100%;
+  }
+  .visualContainer {
+    aspect-ratio: 1.3 / 1;
+  }
+  .ctaFooter {
+    margin-top: 4rem;
+  }
+}

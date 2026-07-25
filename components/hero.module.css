@@ -1,0 +1,259 @@
+.heroSection {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  background-color: var(--background);
+  color: var(--foreground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch;
+  max-width: 1400px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 6rem;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* Left Column: Content column centered vertically */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 5;
+  padding: 4rem 0;
+}
+
+.nameRoleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 3.5rem;
+}
+
+.name {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.role {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.textContainer {
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.headline {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.fixedText {
+  display: block;
+  color: var(--foreground);
+}
+
+.rotatingContainer {
+  position: relative;
+  display: block;
+  height: 1.2em;
+  overflow: visible;
+  margin-top: 0.3rem;
+}
+
+.rotatingWord {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: max-content;
+  padding: 0 20px 0 4px; /* prevents layout clipping / character cutting */
+  white-space: nowrap;
+  
+  /* High-end gradient-stroke combination */
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px transparent;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* CTA buttons design */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2.5rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btnPrimary {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: 1px solid var(--foreground);
+}
+
+.btnPrimary:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--foreground);
+  transform: translateY(-3px);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: var(--foreground);
+  transform: translateY(-3px);
+}
+
+.btnArrow {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+/* Right Side Column: Image container absolutely attached to bottom-right corner */
+.imageContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 92%;
+  width: 48%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heroImage {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  display: block;
+}
+
+/* Responsive breakdowns */
+@media (max-width: 1200px) {
+  .gridContainer {
+    padding: 0 4rem;
+  }
+  .imageContainer {
+    width: 48%;
+    height: 85%;
+  }
+}
+
+@media (max-width: 992px) {
+  .gridContainer {
+    padding: 0 3rem;
+  }
+  .imageContainer {
+    width: 50%;
+    height: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 7rem 1.5rem 3rem 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .gridContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    min-height: auto;
+    height: 100%;
+  }
+
+  .contentCol {
+    padding: 2rem 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .nameRoleContainer {
+    margin-bottom: 2rem;
+  }
+
+  .textContainer {
+    margin-bottom: 3rem;
+  }
+
+  .ctaContainer {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Mobile: Watermark image overlapping behind text */
+  .imageContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 75%;
+    height: 50%;
+    opacity: 0.35;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .heroImage {
+    height: 100%;
+    width: auto;
+  }
+}

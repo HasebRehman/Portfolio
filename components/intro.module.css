@@ -1,0 +1,82 @@
+.introSection {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 10rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tag {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.paragraph {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  margin-bottom: 4rem;
+}
+
+/* Individual word styling for animation */
+.word {
+  margin-right: 0.28em;
+  display: inline-block;
+}
+
+.linkContainer {
+  margin-top: 1rem;
+}
+
+.link {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.link:hover .arrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 6rem 1.5rem;
+  }
+  .paragraph {
+    line-height: 1.35;
+  }
+}
