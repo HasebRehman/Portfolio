@@ -31,6 +31,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Navbar entrance animation when preloader finishes
+  useEffect(() => {
+    const nav = navContainerRef.current;
+    if (!nav) return;
+
+    const playNavEntrance = () => {
+      gsap.fromTo(
+        nav,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }
+      );
+    };
+
+    window.addEventListener("preloaderComplete", playNavEntrance);
+
+    // Fallback if preloader finished or on page refresh
+    const timer = setTimeout(() => {
+      if (nav) {
+        gsap.to(nav, { opacity: 1, y: 0, duration: 0.5 });
+      }
+    }, 2800);
+
+    return () => {
+      window.removeEventListener("preloaderComplete", playNavEntrance);
+      clearTimeout(timer);
+    };
+  }, []);
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);

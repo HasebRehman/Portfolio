@@ -1,0 +1,90 @@
+.preloaderOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* OUTLINE TYPOGRAPHY MATCHING SHARED IMAGE */
+.outlineTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(3rem, 9.5vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+  text-align: center;
+}
+
+.progressBox {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.progressBarTrack {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, #ffffff 100%);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+.counterText {
+  font-family: var(--font-space-grotesk), monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 45px;
+  text-align: right;
+  letter-spacing: 0.05em;
+}
+
+.bottomLabel {
+  position: absolute;
+  bottom: 3rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .outlineTitle {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+  }
+}

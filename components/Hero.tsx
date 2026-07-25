@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./hero.module.css";
 
 export default function Hero() {
@@ -70,44 +71,62 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    // 2. Entrance Animation sequence
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    gsap.registerPlugin(ScrollTrigger);
 
-      // Ensure container is visible
-      gsap.set(containerRef.current, { opacity: 1 });
+    let ctx: gsap.Context | null = null;
 
-      // Staggered entry
-      tl.fromTo(
-        `.${styles.name}, .${styles.role}`,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.1 }
-      )
-        .fromTo(
-          `.${styles.headline}`,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "-=0.6"
+    const playHeroSequence = () => {
+      if (ctx) ctx.revert();
+
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+        // Ensure container is visible
+        if (containerRef.current) {
+          gsap.set(containerRef.current, { opacity: 1 });
+        }
+
+        // Staggered entrance animation
+        tl.fromTo(
+          `.${styles.name}, .${styles.role}`,
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9, stagger: 0.1 }
         )
-        .fromTo(
-          `.${styles.imageContainer}`,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.4, ease: "power3.out" },
-          "-=0.8"
-        )
-        .fromTo(
-          `.${styles.btn}`,
-          { scale: 0.95, opacity: 0, y: 15 },
-          { scale: 1, opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-          "-=0.6"
-        );
-    }, containerRef);
+          .fromTo(
+            `.${styles.headline}`,
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1 },
+            "-=0.6"
+          )
+          .fromTo(
+            `.${styles.imageContainer}`,
+            { opacity: 0, y: 35 },
+            { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
+            "-=0.8"
+          )
+          .fromTo(
+            `.${styles.btn}`,
+            { scale: 0.95, opacity: 0, y: 15 },
+            { scale: 1, opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
+            "-=0.6"
+          );
+      }, containerRef);
+    };
 
-    return () => ctx.revert();
+    // Play animation on load
+    playHeroSequence();
+
+    // Replay animation when preloader finishes
+    window.addEventListener("preloaderComplete", playHeroSequence);
+
+    return () => {
+      window.removeEventListener("preloaderComplete", playHeroSequence);
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (
-    <section ref={containerRef} className={styles.heroSection} style={{ opacity: 0 }}>
+    <section ref={containerRef} className={styles.heroSection}>
       <div className={styles.gridContainer}>
         {/* Left Side: Content */}
         <div className={styles.contentCol}>

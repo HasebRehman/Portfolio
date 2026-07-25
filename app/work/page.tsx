@@ -23,26 +23,26 @@ export default function WorkPage() {
         <div className={styles.projectsPlaceholder}>
           <div className={styles.projectCard}>
             <span className={styles.number}>01</span>
-            <h3>CURELOGICS</h3>
+            <h3>VEYLOHR</h3>
             <p>Creative Digital Experience</p>
-            <Link href="/work/curelogics" className={styles.projectLink}>
-              EXPLORE ARCHIVE →
+            <Link href="/work/veylohr" className={styles.projectLink}>
+              EXPLORE CASE STUDY →
             </Link>
           </div>
           <div className={styles.projectCard}>
             <span className={styles.number}>02</span>
-            <h3>ATTENDANCE MANAGEMENT SYSTEM</h3>
-            <p>Enterprise Web Application</p>
-            <Link href="/work/attendance-management-system" className={styles.projectLink}>
-              EXPLORE ARCHIVE →
+            <h3>ECOMMERCE</h3>
+            <p>Full-Stack Online Store</p>
+            <Link href="/work/ecommerce" className={styles.projectLink}>
+              EXPLORE CASE STUDY →
             </Link>
           </div>
           <div className={styles.projectCard}>
             <span className={styles.number}>03</span>
-            <h3>MAUDE NATASHA</h3>
-            <p>Creative Personal Website</p>
-            <Link href="/work/maude-natasha" className={styles.projectLink}>
-              EXPLORE ARCHIVE →
+            <h3>ATTENDANCE SYSTEM</h3>
+            <p>Enterprise Web Application</p>
+            <Link href="/work/attendance-system" className={styles.projectLink}>
+              EXPLORE CASE STUDY →
             </Link>
           </div>
         </div>

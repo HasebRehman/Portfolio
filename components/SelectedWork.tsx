@@ -25,32 +25,34 @@ export default function SelectedWork() {
 
   const projects: Project[] = [
     {
-      id: "curelogics",
+      id: "veylohr",
       num: "01",
-      title: "CURELOGICS",
+      title: "VEYLOHR",
       category: "Creative Digital Experience",
-      link: "/work/curelogics",
-      accent: "#6366f1",
-      bgPattern: "radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%)",
-      image: "/images/project-1.png",
+      link: "/work/veylohr",
+      accent: "#8b5cf6",
+      bgPattern: "radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 60%)",
+      image: "/images/veylohr.jpg",
     },
     {
-      id: "attendance-management-system",
+      id: "ecommerce",
       num: "02",
+      title: "ECOMMERCE",
+      category: "Full-Stack Online Store",
+      link: "/work/ecommerce",
+      accent: "#3b82f6",
+      bgPattern: "radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 60%)",
+      image: "/images/ecommerce.jpg",
+    },
+    {
+      id: "attendance-system",
+      num: "03",
       title: "ATTENDANCE SYSTEM",
       category: "Enterprise Web Application",
-      link: "/work/attendance-management-system",
+      link: "/work/attendance-system",
       accent: "#06b6d4",
-      bgPattern: "radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)",
-    },
-    {
-      id: "maude-natasha",
-      num: "03",
-      title: "MAUDE NATASHA",
-      category: "Creative Personal Website",
-      link: "/work/maude-natasha",
-      accent: "#ec4899",
-      bgPattern: "radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 60%)",
+      bgPattern: "radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)",
+      image: "/images/attendance-system.jpg",
     },
   ];
 
@@ -127,24 +129,42 @@ export default function SelectedWork() {
                     className={styles.visualContainer}
                     style={{ background: project.bgPattern }}
                   >
-                    {project.image && (
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 55vw"
-                        priority={index === 0}
-                        className={styles.projectImage}
-                      />
-                    )}
-                    {/* Abstract technical wireframe lines inside card to look premium */}
-                    <div className={styles.techLines}>
-                      <div className={styles.horizontalLine} />
-                      <div className={styles.verticalLine} />
-                      <div
-                        className={styles.circleGraphic}
-                        style={{ borderColor: project.accent }}
-                      />
+                    {/* Ambient glow effect on hover */}
+                    <div
+                      className={styles.glowBackdrop}
+                      style={{ background: `radial-gradient(circle, ${project.accent}40 0%, transparent 70%)` }}
+                    />
+                    
+                    {/* Premium Browser Mockup Frame */}
+                    <div
+                      className={styles.browserFrame}
+                      style={{
+                        borderColor: `rgba(255, 255, 255, 0.12)`,
+                        boxShadow: `0 20px 50px -20px ${project.accent}30`
+                      }}
+                    >
+                      <div className={styles.browserHeader}>
+                        <div className={styles.browserDots}>
+                          <span className={`${styles.dot} ${styles.dotRed}`} />
+                          <span className={`${styles.dot} ${styles.dotYellow}`} />
+                          <span className={`${styles.dot} ${styles.dotGreen}`} />
+                        </div>
+                        <div className={styles.addressBar}>
+                          <span>https://</span>{project.id}.app
+                        </div>
+                      </div>
+                      <div className={styles.imageWrapper}>
+                        {project.image && (
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 55vw"
+                            priority={index === 0}
+                            className={styles.projectImage}
+                          />
+                        )}
+                      </div>
                     </div>
                     
                     <span className={styles.cardNum}>{project.num}</span>

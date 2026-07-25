@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import styles from "./project.module.css";
 
@@ -13,37 +14,62 @@ const projectsData: Record<
     description: string;
     tags: string[];
     accent: string;
+    image?: string;
   }
 > = {
+  veylohr: {
+    title: "VEYLOHR",
+    category: "Creative Digital Experience",
+    year: "2025",
+    role: "Lead Creative Developer",
+    description:
+      "A high-end visual showcase and interactive presentation platform developed for Veylohr. Built using immersive GSAP animations, customized canvas rendering, and dynamic transitions to deliver an unforgettable marketing and digital web experience.",
+    tags: ["Next.js", "GSAP", "ScrollTrigger", "Canvas API", "WebGL"],
+    accent: "#8b5cf6",
+    image: "/images/veylohr.jpg",
+  },
+  ecommerce: {
+    title: "ECOMMERCE",
+    category: "Full-Stack Online Store",
+    year: "2025",
+    role: "Full-Stack Developer",
+    description:
+      "A sleek, modern e-commerce web application featuring high-performance product displays, interactive shopping carts, smooth checkout flows, responsive mobile views, and complete inventory management integrations.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Node.js"],
+    accent: "#3b82f6",
+    image: "/images/ecommerce.jpg",
+  },
+  "attendance-system": {
+    title: "ATTENDANCE SYSTEM",
+    category: "Enterprise Web Application",
+    year: "2024",
+    role: "Full-Stack Developer",
+    description:
+      "A secure, real-time enterprise management system engineered for high employee volumes. Featuring detailed analytics dashboards, automated reporting engines, multi-role user configurations, and an optimized mobile-first layout.",
+    tags: ["React", "Laravel", "MySQL", "Tailwind CSS", "REST API"],
+    accent: "#06b6d4",
+    image: "/images/attendance-system.jpg",
+  },
+  "attendance-management-system": {
+    title: "ATTENDANCE SYSTEM",
+    category: "Enterprise Web Application",
+    year: "2024",
+    role: "Full-Stack Developer",
+    description:
+      "A secure, real-time enterprise management system engineered for high employee volumes. Featuring detailed analytics dashboards, automated reporting engines, multi-role user configurations, and an optimized mobile-first layout.",
+    tags: ["React", "Laravel", "MySQL", "Tailwind CSS", "REST API"],
+    accent: "#06b6d4",
+    image: "/images/attendance-system.jpg",
+  },
   curelogics: {
     title: "CURELOGICS",
     category: "Creative Digital Experience",
     year: "2025",
     role: "Lead Creative Developer",
     description:
-      "A high-end visual showcase and interactive presentation platform developed to demonstrate the core features of Curelogics' products. Built using immersive GSAP animations, customized canvas rendering, and dynamic transitions to deliver an unforgettable marketing experience.",
+      "A high-end visual showcase and interactive presentation platform developed to demonstrate the core features of Curelogics' products.",
     tags: ["Next.js", "GSAP", "ScrollTrigger", "Canvas API", "WebGL"],
     accent: "#6366f1",
-  },
-  "attendance-management-system": {
-    title: "ATTENDANCE MANAGEMENT SYSTEM",
-    category: "Enterprise Web Application",
-    year: "2024",
-    role: "Full-Stack Developer",
-    description:
-      "A secure, real-time enterprise management system engineered for high employee volumes. Featuring detailed analytics dashboards, automated reporting engines, multi-role user configurations, and a optimized mobile-first layout built with a highly responsive Laravel backend and Next.js frontend.",
-    tags: ["React", "Laravel", "MySQL", "Tailwind CSS", "REST API"],
-    accent: "#06b6d4",
-  },
-  "maude-natasha": {
-    title: "MAUDE NATASHA",
-    category: "Creative Personal Website",
-    year: "2025",
-    role: "Creative Technologist",
-    description:
-      "An award-winning digital showcase designed for Maude Natasha's photography and creative direction portfolio. Featuring smooth kinetic scrolling, elegant typography transitions, and modular grids designed to showcase visual art in its purest, distraction-free form.",
-    tags: ["Next.js", "Lenis Scroll", "GSAP Motion", "CSS Modules", "WordPress CMS"],
-    accent: "#ec4899",
   },
 };
 
@@ -105,9 +131,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         </div>
 
         <div className={styles.visualPlaceholder}>
-          <div className={styles.visualInner}>
-            <span>VISUAL REPRESENTATION COMING SOON</span>
-          </div>
+          {project.image ? (
+            <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "400px" }}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                style={{ objectFit: "cover", borderRadius: "12px" }}
+              />
+            </div>
+          ) : (
+            <div className={styles.visualInner}>
+              <span>VISUAL REPRESENTATION COMING SOON</span>
+            </div>
+          )}
         </div>
 
         <div className={styles.tagsContainer}>
