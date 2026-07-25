@@ -18,10 +18,10 @@ export default function ServicesPreview() {
   const listRef = useRef<HTMLDivElement>(null);
 
   const services: ServiceItem[] = [
-    { num: "01", name: "WEB DEVELOPMENT", accent: "var(--accent)" },
-    { num: "02", name: "FRONTEND DEVELOPMENT", accent: "var(--accent-secondary)" },
-    { num: "03", name: "FULL-STACK APPLICATIONS", accent: "var(--accent)" },
-    { num: "04", name: "INTERACTIVE DIGITAL EXPERIENCES", accent: "var(--accent-secondary)" },
+    { num: "01", name: "FULL STACK WEB DEVELOPMENT", accent: "var(--accent)" },
+    { num: "02", name: "WORDPRESS WEBSITES", accent: "var(--accent-secondary)" },
+    { num: "03", name: "SHOPIFY", accent: "var(--accent)" },
+    { num: "04", name: "WEB DESIGNING", accent: "var(--accent-secondary)" },
   ];
 
   useEffect(() => {

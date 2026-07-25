@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -48,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
+        <Preloader />
         <SmoothScroll>
           <CustomCursor />
           <Navbar />
