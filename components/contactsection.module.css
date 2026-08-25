@@ -1,0 +1,378 @@
+.contactSection {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 4rem 0 8rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Marquee Slider with Outline Text */
+.marqueeContainer {
+  overflow: hidden;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 7rem;
+}
+
+.marqueeTrack {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+.marqueeText {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sparkleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sparkleIcon {
+  width: clamp(2rem, 7vw, 5.2rem);
+  height: clamp(2rem, 7vw, 5.2rem);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Grid layout for form area */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: flex;
+  gap: 6rem;
+  width: 100%;
+}
+
+/* Left Column */
+.leftCol {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tagRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.sparkle {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.tagText {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.title {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2.5rem, 5.2vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-transform: none;
+}
+
+.subText {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Right Column (Form Layout) */
+.rightCol {
+  width: 68%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 0.8rem 0;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+/* Custom select dropdown styling */
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectWrapper::after {
+  content: "↓";
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  color: var(--muted);
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  pointer-events: none;
+}
+
+.select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 0.8rem 0;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.select:focus {
+  border-color: var(--accent);
+}
+
+.textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 0.8rem 0;
+  outline: none;
+  resize: none;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.textarea:focus {
+  border-color: var(--accent);
+}
+
+/* Privacy Checkbox styles */
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 2px;
+  outline: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox:checked::after {
+  content: "✓";
+  color: #ffffff;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+}
+
+.checkboxLabel {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.privacyLink {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Send Project Details CTA button */
+.btnWrapper {
+  display: flex;
+}
+
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: #ffffff;
+  padding: 0.65rem 0.65rem 0.65rem 2rem;
+  border-radius: 100px;
+  gap: 1.2rem;
+  box-shadow: 0 4px 15px rgba(237, 122, 54, 0.2);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(237, 122, 54, 0.45);
+}
+
+.btnPrimary:hover .circleArrow {
+  transform: rotate(45deg);
+}
+
+.circleArrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrowIconInner {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .grid {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .leftCol {
+    width: 100%;
+  }
+  
+  .rightCol {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 3rem 0 6rem;
+  }
+
+  .marqueeContainer {
+    margin-bottom: 4rem;
+  }
+  
+  .formRow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .btnPrimary {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.65rem 0.65rem 0.65rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}

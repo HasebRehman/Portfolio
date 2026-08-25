@@ -9,6 +9,12 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
+  
+  /* Premium warm background color blend and bottom fade-out at 80% to merge seamlessly with intro section */
+  background-image: 
+    linear-gradient(to bottom, transparent 55%, var(--background) 80%),
+    radial-gradient(circle at 75% 45%, rgba(237, 122, 54, 0.45) 0%, rgba(91, 0, 0, 0.25) 45%, transparent 80%),
+    radial-gradient(circle at 25% 20%, rgba(237, 122, 54, 0.15) 0%, transparent 60%);
 }
 
 .gridContainer {
@@ -37,38 +43,40 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin-bottom: 3.5rem;
+  margin-top: 5rem;
+  margin-bottom: 2.2rem;
 }
 
 .name {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.15em;
   color: var(--muted);
   text-transform: uppercase;
 }
 
 .role {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.15em;
   color: var(--accent);
   text-transform: uppercase;
+  margin-top: 0.2rem;
 }
 
 .textContainer {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
   width: 100%;
 }
 
 .headline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-size: clamp(3.2rem, 8.5vw, 130px);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  line-height: 1.02;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -80,9 +88,9 @@
 .rotatingContainer {
   position: relative;
   display: block;
-  height: 1.2em;
+  height: 1.15em;
   overflow: visible;
-  margin-top: 0.3rem;
+  margin-top: -0.3rem;
 }
 
 .rotatingWord {
@@ -112,47 +120,68 @@
 .btn {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 2.5rem;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.9rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btnPrimary {
-  background-color: var(--foreground);
-  color: var(--background);
-  border: 1px solid var(--foreground);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: #ffffff;
+  padding: 0.65rem 0.65rem 0.65rem 2rem;
+  border-radius: 100px;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(237, 122, 54, 0.2);
 }
 
 .btnPrimary:hover {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: var(--foreground);
   transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(237, 122, 54, 0.45);
+}
+
+.circleArrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnPrimary:hover .circleArrow {
+  transform: rotate(45deg);
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
 .btnSecondary {
-  background-color: transparent;
-  color: var(--foreground);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  gap: 0.6rem;
 }
 
 .btnSecondary:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-color: var(--foreground);
-  transform: translateY(-3px);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .btnArrow {
   transition: transform 0.3s ease;
 }
 
-.btn:hover .btnArrow {
-  transform: translateX(4px);
+.btnSecondary:hover .btnArrow {
+  transform: translate(2px, 2px);
 }
 
 /* Right Side Column: Image container absolutely attached to bottom-right corner */
@@ -176,6 +205,53 @@
   object-fit: contain;
   object-position: bottom right;
   display: block;
+  
+  /* Solid, crisp, natural black-and-white photograph rendering (no orange glow overlay ghosting) */
+  mix-blend-mode: normal;
+  filter: contrast(1.15) brightness(1.05) grayscale(1);
+  
+  /* Mask combination: Keep head/hair 100% solid, while rendering an ultra-soft bottom fade-out */
+  mask-image: 
+    linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.05) 5%, rgba(0, 0, 0, 0.3) 12%, black 35%),
+    radial-gradient(circle at 55% 55%, black 60%, transparent 95%);
+  mask-composite: intersect;
+  
+  -webkit-mask-image: 
+    linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.05) 5%, rgba(0, 0, 0, 0.3) 12%, black 35%),
+    radial-gradient(circle at 55% 55%, black 60%, transparent 95%);
+  -webkit-mask-composite: source-in;
+}
+
+/* Social Links Bar under CTA Buttons */
+.socialLinksRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  z-index: 10;
+}
+
+.socialIconBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #71717a; /* Grey by default */
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.socialIconBtn:hover {
+  color: #e4e4e7; /* Light grey on hover */
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive breakdowns */
@@ -238,6 +314,16 @@
     justify-content: space-between;
   }
 
+  .socialLinksRow {
+    margin-top: 2rem;
+    gap: 0.85rem;
+  }
+
+  .socialIconBtn {
+    width: 40px;
+    height: 40px;
+  }
+
   /* Mobile: Watermark image overlapping behind text */
   .imageContainer {
     position: absolute;
@@ -257,3 +343,5 @@
     width: auto;
   }
 }
+
+

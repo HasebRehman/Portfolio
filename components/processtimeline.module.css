@@ -6,78 +6,160 @@
   box-sizing: border-box;
 }
 
+/* Background Ambient Dynamic Light Orb */
+.bgLightOrb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.8;
+  transition: background 0.8s ease;
+  z-index: 0;
+}
+
 .stickyContainer {
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4.5rem 0 3.5rem;
   position: relative;
   overflow: hidden;
   width: 100vw;
   box-sizing: border-box;
 }
 
-/* Floating status indicator in the top-left */
-.indicatorContainer {
-  position: absolute;
-  top: 5rem;
-  left: 6rem;
+/* Top Header Bar with Section Title & Phase Tabs */
+.topHeader {
+  position: relative;
+  padding: 0 5vw;
   z-index: 10;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.indicatorLabel {
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.subTag {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
+.sectionTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2rem, 4.5vw, 70px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.highlightText {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Top Phase Tabs Navigation */
+.tabsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activeTab {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tabNum {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.tabName {
+  font-weight: 700;
+}
+
+/* Step Counter Indicator */
 .indicatorSteps {
   display: flex;
   align-items: baseline;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   line-height: 1;
 }
 
 .activeNum {
-  color: var(--foreground);
+  transition: color 0.5s ease;
 }
 
 .slash {
   color: var(--muted);
-  margin: 0 0.25rem;
-  opacity: 0.35;
+  margin: 0 0.2rem;
+  opacity: 0.3;
 }
 
 .totalNum {
   color: var(--muted);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   opacity: 0.5;
 }
 
-/* Horizontal Scrolling track */
+/* Horizontal Track Container: Generous top margin for gap below title, and extra right padding for 5th Launch card */
 .horizontalTrack {
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 30vw;
-  padding-right: 30vw;
-  height: 100%;
+  padding-left: calc(50vw - 165px);
+  padding-right: calc(50vw - 165px + 280px);
+  flex: 1;
+  min-height: 0;
   box-sizing: border-box;
+  margin-top: 0;
 }
 
+/* Connecting Line strictly aligned with top node dots above cards */
 .timelineLines {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(50% - 1.25rem);
+  top: calc(50% - 195px);
   height: 2px;
   transform: translateY(-50%);
   z-index: 1;
@@ -92,59 +174,43 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-.progressLineFill {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: var(--accent);
-  transform: scaleX(0);
-}
-
 .stepsWrapper {
   display: flex;
-  gap: 16vw;
+  gap: 8vw;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
-/* Individual Step Styling */
-.step {
+/* Individual Glassmorphic Step Card */
+.stepCard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 25vw;
-  min-width: 320px;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 330px;
+  flex-shrink: 0;
   box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stepNum {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.8rem, 5.2vw, 4.2rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
-  transition: color 0.4s ease, text-shadow 0.4s ease, opacity 0.4s ease;
-  user-select: none;
+.dotContainer {
+  position: absolute;
+  top: -2.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
 }
 
 .dot {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  background-color: var(--background);
-  margin-bottom: 2.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: #0c0c10;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
-  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dotInner {
@@ -155,97 +221,151 @@
   transition: background-color 0.4s ease;
 }
 
+.cardBody {
+  background: rgba(14, 14, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stepCard:hover .cardBody {
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepNumText {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.iconPill {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .stepTitle {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 0.95;
   letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
-  transition: color 0.4s ease;
+  color: #ffffff;
+}
+
+.stepSubtitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .stepDesc {
   font-family: var(--font-inter), sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  max-width: 260px;
-  transition: color 0.4s ease, opacity 0.4s ease;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Upcoming State */
-.upcoming .stepNum {
-  color: var(--muted);
-  opacity: 0.2;
+/* Deliverables Section */
+.deliverablesBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  margin-top: 0.2rem;
 }
 
-.upcoming .dot {
-  border-color: rgba(255, 255, 255, 0.12);
+.deliverablesLabel {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
 }
 
-.upcoming .stepTitle {
-  color: var(--muted);
-  opacity: 0.3;
+.deliverablesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-.upcoming .stepDesc {
-  color: var(--muted);
-  opacity: 0.2;
+.deliverableItem {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  color: #e4e4e7;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* Active Highlight State */
-.active .stepNum {
-  color: var(--accent);
-  text-shadow: 0 0 50px rgba(99, 102, 241, 0.4);
+.bulletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.active .dot {
-  border-color: var(--accent);
-  transform: scale(1.35);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+/* Step State Modifiers */
+.upcoming {
+  opacity: 0.35;
 }
 
-.active .dotInner {
-  background-color: var(--accent);
+.active {
+  opacity: 1;
 }
 
-.active .stepTitle {
-  color: var(--foreground);
+.active .cardBody {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
 }
 
-.active .stepDesc {
-  color: var(--foreground);
-  opacity: 0.95;
-}
-
-/* Completed Subdued State */
-.completed .stepNum {
-  color: var(--muted);
-  opacity: 0.45;
-}
-
-.completed .dot {
-  border-color: var(--accent);
-  background-color: var(--accent);
-}
-
-.completed .dotInner {
-  background-color: var(--accent);
-}
-
-.completed .stepTitle {
-  color: var(--foreground);
-  opacity: 0.6;
-}
-
-.completed .stepDesc {
-  color: var(--muted);
-  opacity: 0.6;
+.completed {
+  opacity: 0.85;
 }
 
 /* Mobile Responsive Overrides */
+@media (max-width: 1200px) {
+  .tabsContainer {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .processSection {
-    padding: 6rem 1.5rem;
+    padding: 5rem 1.25rem;
   }
 
   .stickyContainer {
@@ -255,75 +375,49 @@
     overflow: visible;
   }
 
-  .indicatorContainer {
-    position: sticky;
-    top: 6rem;
+  .topHeader {
+    position: relative;
+    top: 0;
     left: 0;
-    margin-bottom: 4rem;
-    z-index: 10;
+    right: 0;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .horizontalTrack {
     display: block;
     padding: 0;
     height: auto;
+    margin-top: 0;
   }
 
   .timelineLines {
-    left: 1.5rem;
-    top: 2.5rem;
-    bottom: 4.5rem;
-    width: 2px;
-    height: auto;
-    transform: none;
-  }
-
-  .progressLineTrack,
-  .progressLineFill {
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .progressLineFill {
-    transform: scaleY(0);
-    transform-origin: center top;
+    display: none;
   }
 
   .stepsWrapper {
     flex-direction: column;
-    gap: 6rem;
-    align-items: flex-start;
-    padding-left: 4.5rem;
-    position: relative;
+    gap: 2.5rem;
+    align-items: stretch;
+    padding-left: 0;
   }
 
-  .step {
-    position: relative;
+  .stepCard {
     width: 100%;
     min-width: auto;
-    align-items: flex-start;
-    text-align: left;
+    opacity: 1 !important;
   }
 
-  .stepNum {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-    margin-bottom: 0.5rem;
+  .dotContainer {
+    display: none;
   }
 
-  .dot {
-    position: absolute;
-    left: -3rem;
-    top: 1.8rem;
-    transform: translate(-50%, -50%);
-    margin-bottom: 0;
-  }
-
-  /* Force completed visual lines on mobile since they stack vertically */
-  .completed .dot {
-    background-color: var(--accent);
-    border-color: var(--accent);
+  .bgLightOrb {
+    display: none;
   }
 }
+
+
+
