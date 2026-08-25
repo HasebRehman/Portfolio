@@ -1,7 +1,7 @@
 .introSection {
   background-color: var(--background);
   color: var(--foreground);
-  padding: 10rem 2rem;
+  padding: 8rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,66 +10,165 @@
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1400px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  gap: 4rem;
   align-items: flex-start;
 }
 
+/* Left Column Styling */
+.leftCol {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+}
+
 .tag {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.25em;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 2.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sparkle {
+  color: var(--accent);
+}
+
+.lineArrowWrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.line {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  flex-grow: 1;
+}
+
+.lineArrow {
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 0.9rem;
+  margin-left: -2px;
+}
+
+/* Right Column Content Styling */
+.rightCol {
+  display: flex;
+  flex-direction: column;
 }
 
 .paragraph {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(1.8rem, 4.5vw, 3.8rem);
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
   color: var(--foreground);
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  text-transform: none;
+  text-indent: clamp(3rem, 6vw, 6.5rem);
 }
 
-/* Individual word styling for animation */
-.word {
-  margin-right: 0.28em;
-  display: inline-block;
-}
-
-.linkContainer {
+/* CTA buttons design */
+.ctaContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 
-.link {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--foreground);
-  text-decoration: none;
+.btnPrimary {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  transition: color 0.3s ease;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: #ffffff;
+  padding: 0.65rem 0.65rem 0.65rem 2rem;
+  border-radius: 100px;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(237, 122, 54, 0.2);
 }
 
-.link:hover {
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(237, 122, 54, 0.45);
+}
+
+.circleArrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnPrimary:hover .circleArrow {
+  transform: rotate(45deg);
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.btnSecondary {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  gap: 0.6rem;
+}
+
+.btnSecondary:hover {
   color: var(--accent);
+  transform: translateY(-2px);
 }
 
-.arrow {
+.btnArrow {
   transition: transform 0.3s ease;
 }
 
-.link:hover .arrow {
-  transform: translateX(5px);
+.btnSecondary:hover .btnArrow {
+  transform: translate(2px, 2px);
+}
+
+@media (max-width: 991px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .lineArrowWrapper {
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -77,6 +176,6 @@
     padding: 6rem 1.5rem;
   }
   .paragraph {
-    line-height: 1.35;
+    line-height: 1.2;
   }
 }

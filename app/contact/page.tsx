@@ -44,6 +44,10 @@ export default function ContactPage() {
                 <input type="email" id="email" name="email" placeholder="Your Email Address" required />
               </div>
               <div className={styles.formGroup}>
+                <label htmlFor="phone">PHONE NUMBER</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)" />
+              </div>
+              <div className={styles.formGroup}>
                 <label htmlFor="message">MESSAGE</label>
                 <textarea id="message" name="message" rows={5} placeholder="Tell me about your project..." required></textarea>
               </div>

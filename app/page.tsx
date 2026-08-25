@@ -1,21 +1,19 @@
 import Hero from "@/components/Hero";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import IntroSection from "@/components/IntroSection";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import TechStack from "@/components/TechStack";
 import SelectedWork from "@/components/SelectedWork";
 import ServicesPreview from "@/components/ServicesPreview";
-import FinalCTA from "@/components/FinalCTA";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <MarqueeTicker />
       <IntroSection />
       <SelectedWork />
-      <ProcessTimeline />
-      <TechStack />
       <ServicesPreview />
-      <FinalCTA />
+      <ContactSection />
     </main>
   );
 }

@@ -114,10 +114,10 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: "WORK", href: "/work" },
-    { name: "ABOUT", href: "/about" },
-    { name: "SERVICES", href: "/services" },
-    { name: "CONTACT", href: "/contact" },
+    { name: "About", href: "/about" },
+    { name: "Projects", href: "/work" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (

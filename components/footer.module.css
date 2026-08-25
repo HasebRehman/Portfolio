@@ -1,0 +1,303 @@
+.footerSection {
+  background-color: var(--background);
+  background-image: 
+    linear-gradient(to bottom, var(--background) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(237, 122, 54, 0.28) 0%, rgba(237, 122, 54, 0.04) 55%, rgba(237, 122, 54, 0) 90%);
+  color: var(--foreground);
+  padding: 8rem 0 3rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  margin-top: -1px; /* Overlaps slightly to eliminate sub-pixel line gaps */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2; /* Sits in front of the background text */
+  gap: 2.5rem;
+  margin-bottom: clamp(12rem, 20vw, 20rem);
+}
+
+/* Left Column */
+.leftCol {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: none;
+}
+
+.ctaWrapper {
+  display: flex;
+}
+
+/* Start Project Button styling */
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: #ffffff;
+  padding: 0.65rem 0.65rem 0.65rem 2rem;
+  border-radius: 100px;
+  gap: 1.2rem;
+  box-shadow: 0 4px 15px rgba(237, 122, 54, 0.2);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(237, 122, 54, 0.45);
+}
+
+.btnPrimary:hover .circleArrow {
+  transform: rotate(45deg);
+}
+
+.circleArrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrowIconInner {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Middle Column */
+.middleCol {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.colTitle {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerLink {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+/* Right Column (Contact System) */
+.rightCol {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.contactValue {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactValue:hover {
+  color: #ffffff;
+}
+
+/* Huge Background Display Text HASEEB */
+.bgTextContainer {
+  position: absolute;
+  bottom: 5rem;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bgText {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(8rem, 20vw, 20rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+  
+  /* Linear gradient overlay to fade letters into background at the bottom */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    transparent 85%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Bottom Bar socials & copyright */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+}
+
+.socialsList {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.socialCapsule {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialCapsule:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.copyright {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .grid {
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+  
+  .leftCol,
+  .middleCol,
+  .rightCol {
+    width: 100%;
+  }
+  
+  .middleCol {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerSection {
+    padding: 6rem 0 2rem;
+  }
+  
+  .btnPrimary {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.65rem 0.65rem 0.65rem 1.5rem;
+  }
+  
+  .bottomBar {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
