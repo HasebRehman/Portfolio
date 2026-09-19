@@ -48,6 +48,10 @@ export default function ContactPage() {
                 <input type="tel" id="phone" name="phone" placeholder="e.g. +1 555 000 0000" />
               </div>
               <div className={styles.formGroup}>
+                <label htmlFor="phone">PHONE NUMBER</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)" />
+              </div>
+              <div className={styles.formGroup}>
                 <label htmlFor="message">MESSAGE</label>
                 <textarea id="message" name="message" rows={5} placeholder="Describe your design goals, timeline, etc." required></textarea>
               </div>
