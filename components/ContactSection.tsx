@@ -59,7 +59,7 @@ export default function ContactSection() {
                     type="text"
                     id="formName"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder="e.g. John Doe"
                     className={styles.input}
                     required
                   />
@@ -72,7 +72,7 @@ export default function ContactSection() {
                     type="email"
                     id="formEmail"
                     name="email"
-                    placeholder="Your Email Address"
+                    placeholder="e.g. john@example.com"
                     className={styles.input}
                     required
                   />
@@ -88,7 +88,7 @@ export default function ContactSection() {
                   type="tel"
                   id="formPhone"
                   name="phone"
-                  placeholder="Your Phone Number (Optional)"
+                  placeholder="e.g. +1 555 000 0000"
                   className={styles.input}
                 />
               </div>
@@ -102,7 +102,7 @@ export default function ContactSection() {
                   id="formMessage"
                   name="message"
                   rows={4}
-                  placeholder="Tell me about your project..."
+                  placeholder="Describe your design goals, timeline, etc."
                   className={styles.textarea}
                   required
                 />
@@ -131,7 +131,7 @@ export default function ContactSection() {
                 <button type="submit" className={styles.btnPrimary}>
                   <span className={styles.btnText}>Send Project Details</span>
                   <div className={styles.circleArrow}>
-                    <span className={styles.arrowIconInner}>↗</span>
+                    <span className={styles.arrowIconInner}>→</span>
                   </div>
                 </button>
               </div>

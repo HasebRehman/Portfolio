@@ -1,7 +1,7 @@
 .introSection {
   background-color: var(--background);
   color: var(--foreground);
-  padding: 8rem 2rem;
+  padding: 12rem 2rem 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,15 +142,18 @@
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   background: transparent;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
   gap: 0.6rem;
 }
 
 .btnSecondary:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translateY(-3px);
 }
 
 .btnArrow {
@@ -173,7 +176,7 @@
 
 @media (max-width: 768px) {
   .introSection {
-    padding: 6rem 1.5rem;
+    padding: 8rem 1.5rem 5rem;
   }
   .paragraph {
     line-height: 1.2;

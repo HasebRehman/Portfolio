@@ -98,11 +98,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Huge Display Background Text */}
-        <div className={styles.bgTextContainer}>
-          <h1 className={styles.bgText}>HASEEB REHMAN</h1>
-        </div>
-
         {/* Bottom Bar: Socials & Copyright */}
         <div className={styles.bottomBar}>
           <div className={styles.socialsList}>
@@ -154,6 +149,11 @@ export default function Footer() {
           <p className={styles.copyright}>
             ©2026. HASEEB REHMAN - All rights reserved
           </p>
+        </div>
+
+        {/* Huge Display Background Text (Semantic background watermark decoration at bottom of DOM) */}
+        <div className={styles.bgTextContainer}>
+          <div className={styles.bgText}>HASEEB REHMAN</div>
         </div>
       </div>
     </footer>

@@ -37,19 +37,19 @@ export default function ContactPage() {
             <form className={styles.form} onSubmit={undefined}>
               <div className={styles.formGroup}>
                 <label htmlFor="name">NAME</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required />
+                <input type="text" id="name" name="name" placeholder="e.g. John Doe" required />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="email">EMAIL</label>
-                <input type="email" id="email" name="email" placeholder="Your Email Address" required />
+                <input type="email" id="email" name="email" placeholder="e.g. john@example.com" required />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="phone">PHONE NUMBER</label>
-                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number (Optional)" />
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +1 555 000 0000" />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="message">MESSAGE</label>
-                <textarea id="message" name="message" rows={5} placeholder="Tell me about your project..." required></textarea>
+                <textarea id="message" name="message" rows={5} placeholder="Describe your design goals, timeline, etc." required></textarea>
               </div>
               <button type="submit" className={styles.submitBtn}>
                 SEND MESSAGE →

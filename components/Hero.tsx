@@ -237,10 +237,10 @@ export default function Hero() {
       <div ref={imageContainerRef} className={styles.imageContainer}>
         <Image
           ref={imageRef}
-          src="/images/haseeb-hero-portrait-v2.png"
+          src="/images/haseeb-main.png"
           alt="Haseeb Rehman Portrait"
-          width={580}
-          height={700}
+          width={568}
+          height={531}
           priority
           className={styles.heroImage}
         />

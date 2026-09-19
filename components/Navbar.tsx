@@ -126,10 +126,10 @@ export default function Navbar() {
         <div className={styles.container}>
           <Link href="/" className={styles.logoLink} data-cursor-big="true">
             <Image
-              src="/images/HR-logo.png"
+              src="/images/logo.png"
               alt="Haseeb Rehman Logo"
-              width={160}
-              height={50}
+              width={180}
+              height={60}
               priority
               className={styles.logoImg}
             />

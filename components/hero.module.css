@@ -58,7 +58,7 @@
 
 .role {
   font-family: var(--font-inter), sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.15em;
   color: var(--accent);
@@ -72,11 +72,11 @@
 }
 
 .headline {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(3.2rem, 8.5vw, 130px);
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(2.6rem, 5.8vw, 84px);
   font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: 0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -88,9 +88,9 @@
 .rotatingContainer {
   position: relative;
   display: block;
-  height: 1.15em;
+  height: 1.2em;
   overflow: visible;
-  margin-top: -0.3rem;
+  margin-top: 0.1rem;
 }
 
 .rotatingWord {
@@ -100,6 +100,7 @@
   width: max-content;
   padding: 0 20px 0 4px; /* prevents layout clipping / character cutting */
   white-space: nowrap;
+  text-transform: none;
   
   /* High-end gradient-stroke combination */
   background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
@@ -189,8 +190,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 92%;
-  width: 48%;
+  height: 94%;
+  width: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -206,20 +207,13 @@
   object-position: bottom right;
   display: block;
   
-  /* Solid, crisp, natural black-and-white photograph rendering (no orange glow overlay ghosting) */
+  /* Solid, crisp photograph rendering */
   mix-blend-mode: normal;
-  filter: contrast(1.15) brightness(1.05) grayscale(1);
+  filter: contrast(1.08) brightness(1.02);
   
-  /* Mask combination: Keep head/hair 100% solid, while rendering an ultra-soft bottom fade-out */
-  mask-image: 
-    linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.05) 5%, rgba(0, 0, 0, 0.3) 12%, black 35%),
-    radial-gradient(circle at 55% 55%, black 60%, transparent 95%);
-  mask-composite: intersect;
-  
-  -webkit-mask-image: 
-    linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.05) 5%, rgba(0, 0, 0, 0.3) 12%, black 35%),
-    radial-gradient(circle at 55% 55%, black 60%, transparent 95%);
-  -webkit-mask-composite: source-in;
+  /* Mask: Keep upper portrait solid, while rendering a smooth bottom fade-out */
+  mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.15) 5%, black 25%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.15) 5%, black 25%);
 }
 
 /* Social Links Bar under CTA Buttons */

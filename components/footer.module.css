@@ -29,7 +29,7 @@
   position: relative;
   z-index: 2; /* Sits in front of the background text */
   gap: 2.5rem;
-  margin-bottom: clamp(12rem, 20vw, 20rem);
+  margin-bottom: clamp(10rem, 18vw, 18rem);
 }
 
 /* Left Column */
@@ -41,11 +41,11 @@
 }
 
 .heading {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
   text-transform: none;
@@ -112,17 +112,18 @@
 }
 
 .colTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 1.8rem;
-  font-weight: 300;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #ffffff;
   margin: 0;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
 }
 
 .linkList {
   list-style: none;
   padding: 0;
+  padding-left: 0.85rem;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -135,14 +136,15 @@
   font-weight: 400;
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.3s ease;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footerLink:hover {
   color: #ffffff;
+  transform: translateX(3px);
 }
 
-/* Right Column (Contact System) */
 .rightCol {
   width: auto;
   display: flex;
@@ -188,10 +190,10 @@
   color: #ffffff;
 }
 
-/* Huge Background Display Text HASEEB */
+/* Huge Background Display Text HASEEB REHMAN */
 .bgTextContainer {
   position: absolute;
-  bottom: 5rem;
+  bottom: 4.5rem;
   left: 0;
   width: 100%;
   pointer-events: none;
@@ -202,8 +204,8 @@
 }
 
 .bgText {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(8rem, 20vw, 20rem);
+  font-family: var(--font-mango), sans-serif;
+  font-size: clamp(8rem, 20vw, 21rem);
   font-weight: 900;
   text-transform: uppercase;
   line-height: 0.8;
@@ -211,11 +213,11 @@
   margin: 0;
   white-space: nowrap;
   
-  /* Linear gradient overlay to fade letters into background at the bottom */
+  /* Linear gradient overlay to make it dim with smooth fade into bottom */
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
     transparent 85%
   );
   -webkit-background-clip: text;

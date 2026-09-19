@@ -73,13 +73,13 @@
 }
 
 .sectionHeading {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.2vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: 0.02em;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #ffffff;
-  margin-top: 1.6rem;
+  margin-top: 1.2rem;
   margin-bottom: 0.5rem;
   text-transform: none;
 }
@@ -109,11 +109,11 @@
 }
 
 .editorialText {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.2vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: 0.02em;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #ffffff;
   text-transform: none;
   margin: 0;
@@ -238,12 +238,12 @@
 }
 
 .projectTitle {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
-  font-weight: 300;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  font-weight: 600;
   color: #ffffff;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
   margin: 0;
   text-transform: none;
   transition: color 0.3s ease;

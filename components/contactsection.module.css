@@ -16,7 +16,7 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-bottom: 7rem;
+  margin-bottom: 6rem;
 }
 
 .marqueeTrack {
@@ -34,12 +34,12 @@
 }
 
 .marqueeText {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(3.5rem, 11vw, 9.5rem);
-  font-weight: 500;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+  font-weight: 800;
   line-height: 1;
   color: #ffffff;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .sparkleIcon {
-  width: clamp(2rem, 7vw, 5.2rem);
-  height: clamp(2rem, 7vw, 5.2rem);
+  width: clamp(2.4rem, 6vw, 4.8rem);
+  height: clamp(2.4rem, 6vw, 4.8rem);
 }
 
 @keyframes marqueeScroll {
@@ -107,11 +107,11 @@
 }
 
 .title {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.2vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: 0.02em;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0 0 1.5rem 0;
   text-transform: none;
@@ -213,21 +213,23 @@
 }
 
 .textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   font-family: var(--font-inter), sans-serif;
   font-size: 1rem;
   color: #ffffff;
-  padding: 0.8rem 0;
+  padding: 0.8rem 1rem;
   outline: none;
-  resize: none;
+  resize: vertical;
+  min-height: 100px;
   width: 100%;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .textarea:focus {
   border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* Privacy Checkbox styles */
